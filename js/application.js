@@ -1,6 +1,6 @@
 var bettingGame = function bettingGame() {
 
-  var bankRoll = $('.bank-roll').text();
+  var bankRoll = 100
   var bet = $('#bet').val();
   var guess = $('#guess').val();
 
@@ -11,16 +11,22 @@ var bettingGame = function bettingGame() {
   $('.reset-btn').click(function(){
     bankRoll = 100
     updateButton(bankRoll);
+    $('.reset-btn').hide();
+    $('.bet-btn').show();
+    $('.message').text('Game reset!');
   });
 
   $("#bet").change(function() {
     bet = $(this).val();
-    console.log(bet);
+    if(bet > bankRoll) {
+      $('.bet-btn').hide();
+    } else {
+      $('.bet-btn').show(); 
+    };
   });
 
   $("#guess").change(function() {
     guess = $(this).val();
-    console.log(guess);
   });
 
   var gameLoop = function gameLoop(bankroll, bet, guess) {
@@ -81,10 +87,17 @@ var bettingGame = function bettingGame() {
     };
     if(bankRoll < 5) {
       $('.reset-btn').show();
-    } else {
-      $('.reset-btn').hide();
-      $('.bet-btn').show();
+    };
+    icons(bankRoll);
+  };
+
+  var icons = function(bankRoll) {
+    $('.pip').children().remove();
+    for(var i = 0; i < bankRoll; i++) {
+      $('.pip').append('<i class="fa fa-btc"></i>');
     };
   };
+
+  updateButton(bankRoll);
 
 };
