@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-</head>
-<body>
-  <script type="text/javascript" src="application.js"></script>
-  <script type="text/javascript">bettingGame();</script>
-</body>
+  <head>
+    <link rel="stylesheet" href="css/application.css">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <p>Bank Roll: <span class="bank-roll">100</span></p>
+    </div>
+    <div>
+      <span class="message"></span>
+    </div>
+    <div>
+      <form>
+        <div>
+          <label for="bet">Bet:</label>
+          <select id="bet" name="bet" >
+            <option value="" disabled selected>Choose a bet amount!</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+          </select>
+        </div>
+        <div>
+          <label for="guess">Guess:</label>
+          <select id="guess" name="guess" >
+            <option value="" disabled selected>Guess a number!</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+          </select>
+        </div>
+        <div>
+          <input type="button" class="bet-btn" value="Roll the dice!" />
+          <input type="button" class="reset-btn" value="Reset!" />
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        bettingGame();
+      });
+    </script>
+  </body>
 </html>
